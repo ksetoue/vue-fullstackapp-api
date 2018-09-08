@@ -14,18 +14,18 @@ try {
 const PORT = process.env.PORT || 8080;
 
 
-const app = express();
+const server = express();
 
-app.use(cors());
-app.use(bodyParser.json());
-app.use(morgan('combined'));
+server.use(cors());
+server.use(bodyParser.json());
+server.use(morgan('combined'));
 
-app.get('/', (req, res, next) => {
+server.get('/', (req, res, next) => {
     res.status(200).json({
         hello: ', world!'
     });
 })
 
-app.listen(PORT, () => {
-    console.log(`App listening on port ${PORT}`);
+server.listen(PORT, () => {
+    console.log(`server listening on port ${PORT}`);
 });
