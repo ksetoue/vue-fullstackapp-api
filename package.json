@@ -1,0 +1,28 @@
+{
+  "name": "vue-fullstackapp-api",
+  "version": "1.0.0",
+  "description": "Webservice utilizado para servir os dados da aplicação criada no curso [Vue Hands-on](https://github.com/ksetoue/vue-fullstackapp)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksetoue/vue-fullstackapp-api.git"
+  },
+  "keywords": [],
+  "author": "ksetoue, vinifig",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ksetoue/vue-fullstackapp-api/issues"
+  },
+  "homepage": "https://github.com/ksetoue/vue-fullstackapp-api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.13",
+    "morgan": "^1.9.0"
+  }
+}
