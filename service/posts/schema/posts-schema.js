@@ -14,7 +14,7 @@ const postsSchema = new Schema({
         minlength: 2
     }, 
     
-    description: {
+    content: {
         type: String,
         required: true,
         maxlength: 140

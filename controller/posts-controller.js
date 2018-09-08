@@ -14,9 +14,15 @@ postsController.get('/', (req, res) => {
 });
 
 postsController.post('/', (req, res) => { // Criar 
-    res.status(201).json({
-        data: {}
-    });
+    let body = req.body; 
+    
+    postsService.createPost(body)
+        .then((data) => {
+            res.status(201).json({
+                data
+            });
+        });
+
 });
 
 postsController.put('/:id', (req, res) => { // Alterar Tudo
