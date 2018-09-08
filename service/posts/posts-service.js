@@ -11,8 +11,9 @@ function getAll () {
 }
 
 function createPost ({ user, title, content } = {}) {
+    
     if (!user || !title || !content) {
-        throw new TypeError('Invalid arguments'); 
+        return Promise.reject(new TypeError('Invalid arguments'));
     }
 
     return databaseResource.getConnection()
@@ -27,9 +28,21 @@ function createPost ({ user, title, content } = {}) {
         })
 }
 
+function deletePost (_id) {
+    if (!_id) {
+        return Promise.reject(new TypeError('Invalid arguments: id is required'));
+    }
+
+    return databaseResource.getConnection()
+        .then((db) => {
+            return Post.remove({ _id });
+        });
+}
+
 const postsService = {
     getAll,
-    createPost
+    createPost,
+    deletePost
 };
 
 module.exports = postsService;
