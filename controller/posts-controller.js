@@ -1,11 +1,16 @@
 const express = require('express');
+const postsService = require('../service/posts/posts-service');
 
 const postsController = express.Router();
 
 postsController.get('/', (req, res) => {
-    res.status(200).json({
-        data: []
-    });
+    postsService.getAll()
+        .then((data) => {
+            res.status(200).json({
+                data
+            });
+        })
+    
 });
 
 postsController.post('/', (req, res) => { // Criar 
