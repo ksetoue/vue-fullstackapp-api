@@ -15,7 +15,7 @@ try {
     
 }
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 80;
 
 // Server configs
 server.use(cors());
