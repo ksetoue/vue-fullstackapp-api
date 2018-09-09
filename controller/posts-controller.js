@@ -36,6 +36,10 @@ postsController.post('/', (req, res) => { // Criar
                 case 'TypeError':
                     statusCode = 400;
                     message = e.message;
+                    break;
+                default:
+                    statusCode = 500;
+                    message = e;
             }
 
             res.status(statusCode).json({
@@ -46,11 +50,33 @@ postsController.post('/', (req, res) => { // Criar
 });
 
 postsController.put('/:id', (req, res) => { // Alterar Tudo
-    console.log(req.params.id);
-    
-    res.status(200).json({
-        data: {}
-    });
+    let id = req.params.id;
+    let updateData = req.body;
+
+    postsService.updatePost(id, updateData)
+        .then((data) => {
+            res.status(200).json({
+                data
+            });
+        })
+        .catch((e) => {
+            let message, statusCode;
+
+            switch (e.name) {
+                case 'CastError':
+                case 'TypeError':
+                    statusCode = 400;
+                    message = e.message;
+                    break;
+                default: 
+                    statusCode = 500;
+                    message = e;
+            }
+
+            res.status(statusCode).json({
+                message
+            });
+        })
 });
 
 postsController.patch('/:id', (req, res) => { // Altera somente o enviado
