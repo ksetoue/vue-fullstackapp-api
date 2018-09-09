@@ -4,7 +4,8 @@
   "description": "Webservice utilizado para servir os dados da aplicação criada no curso [Vue Hands-on](https://github.com/ksetoue/vue-fullstackapp)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
